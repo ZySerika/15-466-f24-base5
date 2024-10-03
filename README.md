@@ -1,8 +1,8 @@
-# (TODO: your game's title)
+# The maze
 
-Author: (TODO: your name)
+Author: Dante Liang
 
-Design: (TODO: In two sentences or fewer, describe what is new and interesting about your game.)
+Design: The game features a maze that shows the player's real time position and asks the player to get out. 
 
 Screen Shot:
 
@@ -10,9 +10,10 @@ Screen Shot:
 
 How To Play:
 
-(TODO: describe the controls and (if needed) goals/strategy.)
+Left click and use WASD to walk around.
 
-Sources: (TODO: list a source URL for any assets you did not create yourself. Make sure you have a license for the asset.)
+Sources: Maze is generated randomly from https://mazegenerator.net/.
+Walk mesh code involved is adapted from Professor McCann in class.
 
 This game was built with [NEST](NEST.md).
 

@@ -13,6 +13,7 @@
 
 #include <random>
 
+// For convenience, this game is editing upon phone-bank blender files from base code (but is entirely different scene)
 GLuint phonebank_meshes_for_lit_color_texture_program = 0;
 Load< MeshBuffer > phonebank_meshes(LoadTagDefault, []() -> MeshBuffer const * {
 	MeshBuffer const *ret = new MeshBuffer(data_path("phone-bank.pnct"));
@@ -271,17 +272,22 @@ void PlayMode::draw(glm::uvec2 const &drawable_size) {
 			0.0f, 0.0f, 1.0f, 0.0f,
 			0.0f, 0.0f, 0.0f, 1.0f
 		));
-
 		constexpr float H = 0.09f;
-		lines.draw_text("Mouse motion looks; WASD moves; escape ungrabs mouse",
+		glm::vec3 player_pos = player.transform->position;
+
+		std::string player_pos_str = player_pos.y > 28.0f ? "You have finished the maze!" : "Left click and use WSAD to traverse the maze! Your Position: (" + 
+        std::to_string(player_pos.x) + ", " + 
+        std::to_string(player_pos.y) + ")";
+
+		lines.draw_text(player_pos_str,
 			glm::vec3(-aspect + 0.1f * H, -1.0 + 0.1f * H, 0.0),
 			glm::vec3(H, 0.0f, 0.0f), glm::vec3(0.0f, H, 0.0f),
-			glm::u8vec4(0x00, 0x00, 0x00, 0x00));
+			glm::u8vec4(0x23, 0x32, 0x23, 0x3f));
 		float ofs = 2.0f / drawable_size.y;
-		lines.draw_text("Mouse motion looks; WASD moves; escape ungrabs mouse",
+		lines.draw_text(player_pos_str,
 			glm::vec3(-aspect + 0.1f * H + ofs, -1.0 + + 0.1f * H + ofs, 0.0),
 			glm::vec3(H, 0.0f, 0.0f), glm::vec3(0.0f, H, 0.0f),
-			glm::u8vec4(0xff, 0xff, 0xff, 0x00));
+			glm::u8vec4(0x4f, 0x4c, 0x8c, 0x45));
 	}
 	GL_ERRORS();
 }

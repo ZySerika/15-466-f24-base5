@@ -22,10 +22,10 @@ all : \
 	$(DIST)/phone-bank.scene \
 
 $(DIST)/phone-bank.pnct : phone-bank.blend $(EXPORT_MESHES)
-	$(BLENDER) --background --python $(EXPORT_MESHES) -- '$<':Platforms '$@'
+	$(BLENDER) --background --python $(EXPORT_MESHES) -- '$<':maze '$@'
 
 $(DIST)/phone-bank.scene : phone-bank.blend $(EXPORT_SCENE)
-	$(BLENDER) --background --python $(EXPORT_SCENE) -- '$<':Platforms '$@'
+	$(BLENDER) --background --python $(EXPORT_SCENE) -- '$<':maze '$@'
 
 $(DIST)/phone-bank.w : phone-bank.blend $(EXPORT_WALKMESHES)
 	$(BLENDER) --background --python $(EXPORT_WALKMESHES) -- '$<':WalkMeshes '$@'
